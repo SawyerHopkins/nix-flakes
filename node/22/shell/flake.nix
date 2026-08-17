@@ -22,9 +22,10 @@
         {
           default = pkgs.mkShell {
             buildInputs = [
+              pkgs.ubase
               pkgs.nodejs_22
               pkgs.corepack
-              pkgs.neovim
+              pkgs.neovim-unwrapped
               pkgs.ripgrep
               pkgs.fd
               pkgs.lazygit
@@ -39,8 +40,8 @@
               node --version
 
               echo "Environment setup started"
-              mkdir -p /.config/nvim
-              cp -r ${nvim-config-pkg}/* /.config/nvim/
+              mkdir -p /root/.config/nvim
+              cp -r ${nvim-config-pkg}/* /root/.config/nvim/
               echo "Environment setup complete"
             '';
           };
