@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nvim-config-pkg = {
-      url = "github:SawyerHopkins/nvim-config/feature/next";
+      url = "github:SawyerHopkins/nvim-config";
       flake = false;
     };
     nvim-treesitter = {

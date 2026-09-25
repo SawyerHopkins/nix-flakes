@@ -23,6 +23,8 @@ pkgs.mkShell {
     pkgs.jq
     pkgs.tree-sitter
     pkgs.bashInteractive
+    pkgs.awscli2
+    pkgs.opentofu
 
     # language servers
     pkgs.vscode-langservers-extracted
@@ -37,6 +39,9 @@ pkgs.mkShell {
     pkgs.bash-language-server
     pkgs.shellcheck
     pkgs.nixd
+
+    # debug adapters
+    pkgs.vscode-js-debug
   ];
 
   shellHook = ''
@@ -52,6 +57,7 @@ pkgs.mkShell {
     echo "Configurating Tree Sitter"
     export NVIM_TS_RUNTIME=${tsRuntime}
     export VUE_LS_PATH=${pkgs.vue-language-server}/lib/node_modules/@vue/language-server
+    export JS_DAP_PATH=${pkgs.vscode-js-debug}/lib/node_modules/js-debug/./dist/src/dapDebugServer.js
 
     echo Configuring Git
     ${gitSetup}/bin/setup-git
