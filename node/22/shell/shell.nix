@@ -11,11 +11,9 @@ let
 in
 pkgs.mkShell {
   buildInputs = [
+    # utilities
     pkgs.ubase
     pkgs.htop
-    pkgs.nodejs_22
-    pkgs.corepack
-    pkgs.neovim-unwrapped
     pkgs.ripgrep
     pkgs.fd
     pkgs.lazygit
@@ -23,8 +21,20 @@ pkgs.mkShell {
     pkgs.jq
     pkgs.tree-sitter
     pkgs.bashInteractive
+
+    # node
+    pkgs.nodejs_22
+    pkgs.corepack
+
+    # devops
     pkgs.awscli2
     pkgs.opentofu
+
+    # editor
+    pkgs.neovim-unwrapped
+
+    # slopware
+    pgs.claude-code
 
     # language servers
     pkgs.vscode-langservers-extracted
@@ -56,7 +66,7 @@ pkgs.mkShell {
 
     echo "Configurating Tree Sitter"
     export NVIM_TS_RUNTIME=${tsRuntime}
-    export VUE_LS_PATH=${pkgs.vue-language-server}/lib/node_modules/@vue/language-server
+    export VUE_LS_PATH=${pkgs.vue-language-server}/lib/language-tools/packages/language-server
     export JS_DAP_PATH=${pkgs.vscode-js-debug}/lib/node_modules/js-debug/./dist/src/dapDebugServer.js
 
     echo Configuring Git
