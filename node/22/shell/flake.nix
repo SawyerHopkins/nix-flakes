@@ -22,7 +22,10 @@
   let
     supportedSystems = ["aarch64-linux"];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems f;
-    pkgsFor = system: import nixpkgs { inherit system; };
+    pkgsFor = system: import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in
   {
     packages = forAllSystems (system: {

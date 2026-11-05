@@ -34,7 +34,7 @@ pkgs.mkShell {
     pkgs.neovim-unwrapped
 
     # slopware
-    pgs.claude-code
+    pkgs.claude-code
 
     # language servers
     pkgs.vscode-langservers-extracted
