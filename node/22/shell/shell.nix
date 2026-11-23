@@ -68,6 +68,7 @@ pkgs.mkShell {
     export NVIM_TS_RUNTIME=${tsRuntime}
     export VUE_LS_PATH=${pkgs.vue-language-server}/lib/language-tools/packages/language-server
     export JS_DAP_PATH=${pkgs.vscode-js-debug}/lib/node_modules/js-debug/./dist/src/dapDebugServer.js
+    export PATH="$(npm prefix -g)/bin:$PATH"
 
     echo Configuring Git
     ${gitSetup}/bin/setup-git
